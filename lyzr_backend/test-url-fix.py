@@ -1,45 +1,44 @@
 {
-    "_id": "688921d09933921ff68fcae2",
-    "api_key": "sk-default-05hTTebADbZQbZXbnkaDRHRxi4iMvK6g",
-    "name": "Anurag Portfolio Assistant",
-    "description": "AI Agent: Anurag Portfolio Assistant",
-    "agent_role": null,
-    "agent_instructions": null,
-    "agent_goal": null,
-    "agent_context": null,
-    "agent_output": null,
-    "examples": null,
-    "features": [
-        {
-            "type": "KNOWLEDGE_BASE",
-            "config": {
-                "lyzr_rag": {
-                    "rag_id": "688921cf27bf591f1e85a633",
-                    "params": {
-                        "top_k": 5
-                    }
-                }
-            },
-            "priority": 0
-        },
-        {
-            "type": "MEMORY",
-            "config": {
-                "max_messages_context_count": 10
-            },
-            "priority": 1
+  "name": "Anurag World",
+  "description": "AI Agent: Anurag World",
+  "agent_role": "You are an Expert in addressing User Queries about a given website. Your task is to provide detailed and accurate information regarding the website's SUPPORT and related data.",
+  "agent_goal": "Your goal is to tell about the website support and thier informations.",
+  "agent_instructions": "1. Analyze the user query about the website.\n2. Identify the relevant SUPPORT information related to the website.\n3. Provide detailed responses to any questions or queries regarding the website’s SUPPORT.\n4. Use affirmative language to convey confidence and clarity, focusing on SUPPORT details.\n5. Highlight important information in UPPERCASE for emphasis.\n6. Ensure all information is accurate and applicable to the website in question. \n7. Maintain a professional tone throughout the responses.\n\nCONTEXT: \nOUTPUT GUIDELINES:  \nOUTPUT EXAMPLES: None\nlist of agents available as tools which should be used for agent_as_tool []",
+  "examples": null,
+  "tool": "",
+  "tool_usage_description": "{}",
+  "provider_id": "OpenAI",
+  "model": "gpt-4o-mini",
+  "temperature": "0.2",
+  "top_p": "1",
+  "llm_credential_id": "lyzr_openai",
+  "features": [
+    {
+      "type": "KNOWLEDGE_BASE",
+      "config": {
+        "lyzr_rag": {
+          "base_url": "https://rag-prod.studio.lyzr.ai",
+          "rag_id": "6889349c27bf591f1e85a643",
+          "rag_name": "kb_coll_a9388aedf84a4565",
+          "params": {
+            "top_k": 5,
+            "retrieval_type": "basic",
+            "score_threshold": 0.4
+          }
         }
-    ],
-    "tools": [],
-    "tool_usage_description": null,
-    "response_format": {},
-    "provider_id": "OpenAI",
-    "model": "gpt-4o-mini",
-    "top_p": "1",
-    "temperature": "0.2",
-    "managed_agents": null,
-    "version": "3",
-    "created_at": "2025-07-29T19:32:32.766000",
-    "updated_at": "2025-07-29T19:32:33.618000",
-    "llm_credential_id": "lyzr_openai"
+      },
+      "priority": 0
+    },
+    {
+      "type": "MEMORY",
+      "config": {
+        "max_messages_context_count": 10
+      },
+      "priority": 1
+    }
+  ],
+  "managed_agents": [],
+  "response_format": {
+    "type": "text"
+  }
 }
