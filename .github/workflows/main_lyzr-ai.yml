@@ -22,18 +22,22 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd lyzr_backend
           python -m venv venv
           source venv/bin/activate
-          pip install -r lyzr_backend/requirements.txt
+          pip install -r requirements.txt
 
+      - name: Zip artifact for deployment
+        run: |
+          cd lyzr_backend
+          chmod +x startup.sh
+          zip -r ../release.zip . -x "venv/*"
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: |
-            lyzr_backend
-            !**/venv/
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,4 +56,4 @@ jobs:
           app-name: 'lyzr-ai'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C41E17DDFD7D43B4B26B7E82A1A8F83D }}
-          package: ./lyzr_backend
+          package: release.zip
